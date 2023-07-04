@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>window.ethereum</title>
 
+  <div id="console">
+    console:
+    <p id="console-content" style="color: #a00"></p>
+  </div>
+  <hr/>
   <!-- eth_requestAccounts -->
   <button id="get-account-info">eth_requestAccounts</button>
   <button id="disconnect-account-info">disconnect</button>
@@ -27,10 +32,15 @@
   <textarea name="" id="sign-transaction-tx" cols="50" rows="10"></textarea>
   <p style="white-space: pre-wrap">
     example input:
-    {
+    <!-- {
       "from": "0x882d47673b1d0381D92a7DADF0901DA2EC58D1bf",
       "to": "0x04C66bE8c020949cf1dFF8f23233D403b4240624",
       "value": "0x100000"
+    } -->
+    {
+      from: '0x882d47673b1d0381D92a7DADF0901DA2EC58D1bf',
+      to: '0x04C66bE8c020949cf1dFF8f23233D403b4240624',
+      value: '0x100000'
     }
   </p>
 
@@ -38,7 +48,6 @@
 <body>
   <script src="./index.js"></script>
   <script>
-    
   </script>
 </body>
 </html>

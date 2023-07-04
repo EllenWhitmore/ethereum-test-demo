@@ -1,3 +1,5 @@
+import { transStrToObj } from './utils';
+
 const log = console.log.bind(console, '=====window.TronLinkEVM CONSOLE=====');
 function $id(id) {
   return document.getElementById(id);
@@ -36,9 +38,11 @@ $id("get-account-info").addEventListener("click", async () => {
     if (Array.isArray(res) && typeof res[0] === "string") {
       log("eth_requestAccounts success", res);
       $id('account-info').innerHTML = res[0];
+      $id('console-content').innerHTML = res;
     }
   } catch (error) {
     log("eth_requestAccounts fail", error);
+    $id('console-content').innerHTML = error.toString() === '[object Object]' ? JSON.stringify(error) : error;
   }
 });
 
@@ -54,9 +58,11 @@ $id('switch-chain-btn').addEventListener("click", async () => {
     const res = await TronLinkEVM.request({ method: "wallet_switchEthereumChain", params: [{chainId: chainId}] });
     if (!res) {
       log("wallet_switchEthereumChain success", res);
+      $id('console-content').innerHTML = res;
     }
   } catch (error) {
     log("wallet_switchEthereumChain fail", error);
+    $id('console-content').innerHTML = error.toString() === '[object Object]' ? JSON.stringify(error) : error;
   }
 })
 // wallet_switchEthereumChain end
@@ -65,14 +71,16 @@ $id('switch-chain-btn').addEventListener("click", async () => {
 $id('sign-transaction-btn').addEventListener("click", async () => {
   try {
     const inputValue = $id('sign-transaction-tx').value;
-    const inputObj = JSON.parse(inputValue);
+    const inputObj = transStrToObj(inputValue);
     log('inputObj', inputObj);
-    const res = await TronLinkEVM.request({ method: "eth_sendTransaction", params: [inputObj] });
-    if (res) {
-      log("eth_sendTransaction success", res);
-    }
+    // const res = await TronLinkEVM.request({ method: "eth_sendTransaction", params: [inputObj] });
+    // if (res) {
+    //   log("eth_sendTransaction success", res);
+    //   $id('console-content').innerHTML = res;
+    // }
   } catch (error) {
     console.error("eth_sendTransaction fail", error);
+    $id('console-content').innerHTML = error.toString() === '[object Object]' ? JSON.stringify(error) : error;
   }
 })
 // eth_sendTransaction end
