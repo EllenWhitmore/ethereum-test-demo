@@ -1,0 +1,32 @@
+{
+  "name": "ethereum-test-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Aaron",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack serve",
+    "dev2": "webpack serve --config webpack.config.version2.js"
+  },
+  "dependencies": {
+    "ethers": "5.7.2",
+    "https-browserify": "^1.0.0",
+    "jsx-loader": "^0.13.2",
+    "lodash": "^4.17.21",
+    "webpack": "^5.74.0",
+    "webpack-dev-server": "^4.10.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.21.4",
+    "@babel/plugin-proposal-class-properties": "7.18.6",
+    "@babel/plugin-proposal-optional-chaining": "7.21.0",
+    "@babel/plugin-transform-classes": "7.21.0",
+    "@babel/plugin-transform-runtime": "7.21.4",
+    "@babel/plugin-transform-template-literals": "7.18.9",
+    "@babel/preset-env": "7.21.4",
+    "@babel/preset-react": "7.18.6",
+    "@babel/preset-typescript": "7.21.4",
+    "babel-loader": "^9.1.2",
+    "webpack-cli": "^4.10.0"
+  }
+}

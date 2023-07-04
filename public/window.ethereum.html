@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>window.ethereum</title>
+
+  <!-- eth_requestAccounts -->
+  <button id="get-account-info">eth_requestAccounts</button>
+  <button id="disconnect-account-info">disconnect</button>
+  <div id="account-info">User Address</div>
+  <br/>
+  <br/>
+  <hr/>
+  <br/>
+  <button id="switch-chain-btn">wallet_switchEthereumChain</button>
+  <label for="switch-chain-id-input">switchChainId(hex)</label>
+  <input id="switch-chain-id-input" type="text">
+  <div>current chainId: <span id="current-chain-id"></span></div>
+  <br/>
+  <br/>
+  <hr/>
+  <br/>
+  <button id="sign-transaction-btn">eth_sendTransaction</button>
+  <br/>
+  <textarea name="" id="sign-transaction-tx" cols="50" rows="10"></textarea>
+  <p style="white-space: pre-wrap">
+    example input:
+    {
+      "from": "0x882d47673b1d0381D92a7DADF0901DA2EC58D1bf",
+      "to": "0x04C66bE8c020949cf1dFF8f23233D403b4240624",
+      "value": "0x100000"
+    }
+  </p>
+
+</head>
+<body>
+  <script src="./index.js"></script>
+  <script>
+    
+  </script>
+</body>
+</html>
